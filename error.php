@@ -3,7 +3,7 @@
 
 <!-- the head section -->
 <head>
-    <title>My Guitar Shop</title>
+    <title>My Book Shop</title>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 

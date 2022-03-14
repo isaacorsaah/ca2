@@ -2,12 +2,19 @@
 
 // Get the product data
 $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
-$name = filter_input(INPUT_POST, 'name');
-$price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+$fname = filter_input(INPUT_POST, 'fname');
+$lname = filter_input(INPUT_POST, 'lname');
+$age = filter_input(INPUT_POST, 'age');
+$residence = filter_input(INPUT_POST, 'residence');
+$ceo = filter_input(INPUT_POST, 'ceo');
+$networth = filter_input(INPUT_POST, 'networth', FILTER_VALIDATE_FLOAT);
+$stake = filter_input(INPUT_POST, 'stake');
 
 // Validate inputs
 if ($category_id == null || $category_id == false ||
-    $name == null || $price == null || $price == false ) {
+    $fname == null ||$lname == null || $age == null ||
+    $residence == null ||$ceo == null ||$networth == null 
+    || $stake == false ) {
     $error = "Invalid product data. Check all fields and try again.";
     include('error.php');
     exit();
@@ -68,8 +75,13 @@ if ($category_id == null || $category_id == false ||
                  (:category_id, :name, :price, :image)";
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
-    $statement->bindValue(':name', $name);
-    $statement->bindValue(':price', $price);
+    $statement->bindValue(':fname', $fname);
+    $statement->bindValue(':lname', $lname);
+    $statement->bindValue(':age', $age);
+    $statement->bindValue(':residence', $residence);
+    $statement->bindValue(':ceo', $ceo);
+    $statement->bindValue(':networth', $networth);
+    $statement->bindValue(':stake', $stake);
     $statement->bindValue(':image', $image);
     $statement->execute();
     $statement->closeCursor();

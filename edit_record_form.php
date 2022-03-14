@@ -23,27 +23,38 @@ include('includes/header.php');
             <input type="hidden" name="record_id"
                    value="<?php echo $records['recordID']; ?>">
 
-            <label>Category ID:</label>
-            <input type="category_id" name="category_id"
-                   value="<?php echo $records['categoryID']; ?>">
-            <br>
+                   <label for="fname">First name:</label>
+            <input type="text" name="fname" required><br><br>
+            <label for="lname">Last name:</label>
+            <input type="text" name="lname" required><br><br>
 
-            <label>Name:</label>
-            <input type="input" name="name"
-                   value="<?php echo $records['name']; ?>">
-            <br>
+            <label>Age:</label>
+            <input type="number" size="4" name="age" placeholder="" min="18"  required>
+            <br><br> 
+            
+            <label>Residence:</label>
+            <input type="text" name="residence" required>
+            <br><br>  
 
-            <label>List Price:</label>
-            <input type="input" name="price"
-                   value="<?php echo $records['price']; ?>">
-            <br>
+            <label>Co-founder and CEO:</label>
+            <input type="text"  name="ceo" required>
+            <br><br>  
 
+            <label>Net Worth:</label>
+            <input type="currency" name="networth" placeholder="" value="0.00"  required>
+            <br><br>  
+
+            <label>Ownership Stake:</label>
+            <input type="text" name="stake" required>
+            <br><br>  
+            
             <label>Image:</label>
             <input type="file" name="image" accept="image/*" />
-            <br>            
-            <?php if ($records['image'] != "") { ?>
+            <br><br>
+        
+           
             <p><img src="image_uploads/<?php echo $records['image']; ?>" height="150" /></p>
-            <?php } ?>
+       
             
             <label>&nbsp;</label>
             <input type="submit" value="Save Changes">
